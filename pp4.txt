@@ -1,0 +1,31 @@
+#4a.File Operation
+with open('prog4a.txt','w') as file:
+    file.write("This is a Simple file Operation")
+with open('prog4a.txt','r') as file:
+    content = file.read()
+    print("Content of File after write Operation")
+    print(content)
+with open('prog4a.txt','a') as file:
+    file.write("\nThis Text is Append to File")
+with open('prog4a.txt','r') as file:
+    content = file.read()
+    print("Content of File after Append Operation")
+    print(content)
+
+#4b.Data Wrangling
+import pandas as pd
+details = pd.DataFrame({'ID':[1,2,3,4,5],
+                        'NAME':['abc','def','ghi','jkl','mno'],
+                        'Age':[21,22,23,24,24]
+                        })
+stud_details = pd.DataFrame({'ID':[1,2,3],
+                             'BRANCH':['MCA','MCA','MBA'],
+                             'COLLEGE':['RV','NMIT','BMS']})
+#merge
+print(pd.merge(details, stud_details))
+#concat
+print(pd.concat([details,stud_details]))
+#filtered
+print(details[details['Age'] > 19])
+#RemoveDuplicate
+print(details[~details.duplicated('Age')])
